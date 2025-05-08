@@ -45,7 +45,7 @@ class Kelola_produk extends CI_Controller {
  }
 
  public function update() {
-  $this->load->model('Produk');
+  $this->load->model('Produk'); 
   $id = $this->input->post('id');
   $nama_produk = $this->input->post('nama_produk');
   $kategori = $this->input->post('kategori');
