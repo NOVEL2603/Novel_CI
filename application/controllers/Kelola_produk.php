@@ -49,7 +49,7 @@ class Kelola_produk extends CI_Controller {
   $id = $this->input->post('id');
   $nama_produk = $this->input->post('nama_produk');
   $kategori = $this->input->post('kategori');
-  $stok = $this->input->post('stok');
+  $stok = $this->input->post('stok');   
   $harga = $this->input->post('harga');
   
   $data = array(
