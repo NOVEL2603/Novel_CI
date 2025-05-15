@@ -22,4 +22,8 @@ class Produk extends CI_Model {
   return $this->db->where($where)
         ->update('produk', $data); // Mengembalikan hasil update (TRUE/FALSE)
  }
+ public function detail_data($id = NULL) {
+      $query = $this->db->get_where('produk', array('id' => $id))->row();
+      return $query;
+}
 }

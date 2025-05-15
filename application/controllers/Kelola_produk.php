@@ -63,4 +63,17 @@ class Kelola_produk extends CI_Controller {
   $this->Produk->update_produk($where, $data); // Memanggil fungsi yang lebih spesifik
   redirect('kelola_produk');
  }
+ public function detail($id){
+  $this->load->model('Produk');
+  $detail = $this->Produk->detail_data($id);
+  $data['detail'] = $detail;
+  $this->load->view('layouts/header');
+  $this->load->view('layouts/sidebar');
+  $this->load->view('detail', $data);
+  $this->load->view('layouts/footer');
+ 
+}
+
+
+
 }

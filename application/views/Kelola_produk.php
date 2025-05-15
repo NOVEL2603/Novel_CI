@@ -133,6 +133,11 @@
                                                             <td><?php echo $prd['stok']; ?></td>
                                                             <td><?php echo $prd['harga']; ?></td>
                                                             <td>
+                                                            <a href="<?php echo base_url('index.php/kelola_produk/detail/' . $prd['id']); ?>">
+                                                                    <div class="btn btn-success btn-sm">
+                                                                        <i class="tf-icons bx bx-search"></i>
+                                                                    </div>
+                                                                </a>
                                                                 <a onclick="javascript: return confirm('Anda yakin ingin menghapus produk ini?')" href="<?php echo base_url('index.php/kelola_produk/hapus/' . $prd['id']); ?>">
                                                                     <div class="btn btn-danger btn-sm">
                                                                         <i class="tf-icons bx bx-trash"></i>
