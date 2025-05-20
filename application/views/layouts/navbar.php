@@ -1,11 +1,3 @@
-<?php $this->load->view('layouts/header'); ?>
-
-<body>
-    <div class="layout-wrapper layout-content-navbar">
-        <div class="layout-container">
-            <?php $this->load->view('layouts/sidebar'); ?>
-
-            <div class="layout-page">
                 <nav
                     class="layout-navbar container-xxl navbar-detached navbar navbar-expand-xl align-items-center bg-navbar-theme"
                     id="layout-navbar">
@@ -34,7 +26,9 @@
                                     data-icon="octicon-star"
                                     data-size="large"
                                     data-show-count="true"
-                                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
+                                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
+                                    >Star</a
+                                >
                             </li>
 
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -78,7 +72,8 @@
                                     <li>
                                         <a class="dropdown-item" href="#">
                                             <span class="d-flex align-items-center align-middle">
-                                                <i class="flex-shrink-0 icon-base bx bx-credit-card icon-md me-3"></i><span class="flex-grow-1 align-middle">Billing Plan</span>
+                                                <i class="flex-shrink-0 icon-base bx bx-credit-card icon-md me-3"></i
+                                                ><span class="flex-grow-1 align-middle">Billing Plan</span>
                                                 <span class="flex-shrink-0 badge rounded-pill bg-danger">4</span>
                                             </span>
                                         </a>
@@ -87,55 +82,12 @@
                                         <div class="dropdown-divider my-1"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:void(0);">
+                                        <a class="dropdown-item" href="<?php echo base_url('index.php/auth/logout');?>">
                                             <i class="icon-base bx bx-power-off icon-md me-3"></i><span>Keluar</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                        </ul>
+                            </ul>
                     </div>
                 </nav>
-
-                <div class="content-wrapper">
-                    <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Edit Data Produk</h5>
-                                        <form action="<?php echo base_url('index.php/kelola_produk/update'); ?>" method="POST">
-                                            <input type="hidden" name="id" value="<?php echo $produk->id; ?>">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="nama_produk">Nama Produk</label>
-                                                <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?php echo $produk->nama_produk; ?>" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label" for="kategori">Kategori</label>
-                                                <select class="form-select" id="kategori" name="kategori" required>
-                                                    <option value="">Pilih Kategori</option>
-                                                    <?php foreach ($kategori_list as $kategori_item): ?>
-                                                        <option value="<?php echo $kategori_item['id']; ?>"
-                                                            <?php echo ($kategori_item['id'] == $produk->id) ? 'selected' : ''; ?>>
-                                                            <?php echo $kategori_item['nama_kategori']; ?>
-                                                        </option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label" for="stok">Stok</label>
-                                                <input type="number" class="form-control" id="stok" name="stok" value="<?php echo $produk->stok; ?>" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label" for="harga">Harga</label>
-                                                <input type="text" class="form-control" id="harga" name="harga" value="<?php echo $produk->harga; ?>" required>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                            <a href="<?php echo base_url('index.php/kelola_produk'); ?>" class="btn btn-secondary ms-2">Batal</a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php $this->load->view('layouts/footer'); ?>
