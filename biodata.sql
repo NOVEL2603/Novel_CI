@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 07 Bulan Mei 2025 pada 02.44
+-- Waktu pembuatan: 20 Bulan Mei 2025 pada 05.36
 -- Versi server: 5.7.34
 -- Versi PHP: 8.2.6
 
@@ -45,6 +45,17 @@ INSERT INTO `bio` (`id`, `nama`, `ttl`, `alamat`, `no_hp`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id` int(11) NOT NULL,
+  `nama_kategori` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `produk`
 --
 
@@ -61,8 +72,7 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `nama_produk`, `kategori`, `stok`, `harga`) VALUES
-(1, 'meja lipat', 'meja ', 12, '2000'),
-(2, 'meja dorong', 'meja ', 13, '2300');
+(7, 'meja lipat', 'kursi ', 13, '2300');
 
 --
 -- Indexes for dumped tables
@@ -75,10 +85,17 @@ ALTER TABLE `bio`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kategori` (`kategori`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -91,10 +108,16 @@ ALTER TABLE `bio`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
